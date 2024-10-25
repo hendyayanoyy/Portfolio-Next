@@ -1,18 +1,18 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import "../../app/globals.css";
 
 export default function Header() {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const mobileMenuRef = useRef<HTMLDivElement | null>(null);
-    const menuButtonRef = useRef<HTMLButtonElement | null>(null); // Tambahkan ref untuk tombol menu
+    const menuButtonRef = useRef<HTMLButtonElement | null>(null);
 
     const toggleMobileMenu = () => {
         setMobileMenuOpen((prev) => !prev);
     };
 
-    const handleClickOutside = (event: MouseEvent) => {
-        // Cek apakah menu terbuka dan klik di luar menu dan tombol
+    // Gunakan useCallback untuk menghindari dependency yang tidak diperlukan
+    const handleClickOutside = useCallback((event: MouseEvent) => {
         if (
             isMobileMenuOpen &&
             mobileMenuRef.current &&
@@ -22,16 +22,14 @@ export default function Header() {
         ) {
             setMobileMenuOpen(false);
         }
-    };
+    }, [isMobileMenuOpen]);
 
     useEffect(() => {
-        // Menambahkan event listener untuk klik di luar
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
-            // Menghapus event listener saat komponen di-unmount
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [isMobileMenuOpen]);
+    }, [handleClickOutside]);
 
     return (
         <div>
@@ -71,7 +69,7 @@ export default function Header() {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={toggleMobileMenu}
-                        ref={menuButtonRef} // Menambahkan ref ke tombol mobile menu
+                        ref={menuButtonRef}
                         className="lg:hidden focus:outline-none"
                     >
                         <div className="w-9 h-10 cursor-pointer flex flex-col items-center justify-center">
@@ -90,7 +88,7 @@ export default function Header() {
 
                 {/* Mobile Menu */}
                 <div
-                    ref={mobileMenuRef} // Menambahkan ref ke menu mobile
+                    ref={mobileMenuRef}
                     className={`lg:hidden fixed z-60 left-0 top-0 w-full h-full bg-slate-600 bg-opacity-90 shadow-lg transition-transform duration-300 ease-in-out transform ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
                 >
                     <div className="flex items-center justify-center h-full">

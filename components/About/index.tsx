@@ -26,8 +26,8 @@ export default function Index() {
                     <div className="lg:ml-8 mt-6 lg:mt-0 lg:w-1/2 w-full">
                         <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-between">
                             <p className="text-base lg:text-start text-center md:text-lg mb-6 text-slate-300">
-                                I’m Hendi Saputra, a passionate web developer with a keen interest in creating innovative
-                                and user-friendly digital experiences. Currently, I'm pursuing a degree in Informatics
+                                I&#39;m Hendi Saputra, a passionate web developer with a keen interest in creating innovative
+                                and user-friendly digital experiences. Currently, I ampursuing a degree in Informatics
                                 Engineering, which has provided me with a strong foundation in both front-end and 
                                 back-end development.
                             </p>

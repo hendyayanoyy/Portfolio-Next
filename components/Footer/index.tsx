@@ -9,7 +9,7 @@ export default function Index() {
                     <nav className="flex-1">
                         <h6 className="footer-title underline font-bold text-xl mb-4">About Me</h6>
                         <p>
-                            I'm Hendi Saputra, a passionate web developer with a keen interest in creating innovative and user-friendly digital experiences.
+                            I&#39;m Hendi Saputra, a passionate web developer with a keen interest in creating innovative and user-friendly digital experiences.
                         </p>
                     </nav>
                     <nav className="flex-1">

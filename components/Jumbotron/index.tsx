@@ -78,7 +78,7 @@ export default function Index() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8 }}
                 >
-                    I'm <span className="text-blue-700">Hendi Saputra</span>
+                    I&#39;m <span className="text-blue-700">Hendi Saputra</span>
                 </motion.p>
 
                 {/* Animasi untuk teks berjalan (typewriter effect) */}
