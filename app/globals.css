@@ -2,26 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* Custom global styles */
+body {
+  background-image: linear-gradient(
+    111.4deg,
+    rgba(7, 7, 9, 1) 6.5%,
+    rgba(27, 24, 113, 1) 93.2%
+  );
+  background-size: 200% 200%;
+  animation: gradient-animation 8s ease infinite;
+  overflow-x: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.blob {
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  border-radius: 40% 60% 65% 35% / 40% 35% 65% 60%;
+  height: 380px;
+  width: 380px;
+  animation: shaping 5s infinite;
+}
+
+@keyframes shaping {
+  0% {
+    border-radius: 40% 60% 65% 35% / 40% 35% 65% 60%;
+  }
+  50% {
+    border-radius: 70% 30% 50% 50% / 65% 35% 65% 35%;
+  }
+  100% {
+    border-radius: 40% 60% 65% 35% / 40% 35% 65% 60%;
+  }
+}
+
+/* Sembunyikan scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Untuk Internet Explorer dan Edge */
+  scrollbar-width: none; /* Untuk Firefox */
 }
